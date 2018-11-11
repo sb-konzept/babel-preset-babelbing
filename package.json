@@ -38,6 +38,7 @@
     "jest": "^23.6.0"
   },
   "scripts": {
+    "prepublish": "yarn test",
     "pretest": "# yarn lint",
     "test": "yarn jest",
     "lint": "eslint ."
