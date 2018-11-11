@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-babelbing",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A babel preset for transforming your JavaScript for Babelbing",
   "main": "index.js",
   "author": "Michael Albertz <m.albertz@sb-konzept.de",
