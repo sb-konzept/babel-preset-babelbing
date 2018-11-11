@@ -1,17 +1,11 @@
-# babel-preset-airbnb
+# babel-preset-babelbing
 
-> A babel preset for transforming your JavaScript for Airbnb.
-
-Currently contains transforms for all [stage 4](https://tc39.github.io/ecma262/) (ES2018) and [stage 3](https://github.com/tc39/proposals#active-proposals) syntax that is permitted in the [Airbnb Style Guide](https://github.com/airbnb/javascript). Please note that if usage of a stage 3 proposal is not explicitly mentioned in the Airbnb Style Guide, then it will not be enabled here. Additionally, stage 4 syntax that is excluded is as follows:
- - generators: `regenerator-runtime` is too heavyweight for our use.
- - `async/await`: `regenerator-runtime` is too heavyweight for our use, and [async-to-promises](https://www.npmjs.com/package/babel-plugin-async-to-promises) is not yet complete enough to be safely used.
- - async iterators: depends on both generators and `async function`s
- - lifted template literal restrictions: we do not use tagged template literals, nor implement custom DSLs, otherwise we would enable this.
+> A babel preset for transforming your JavaScript for Babelbing.
 
 ## Install
 
 ```sh
-$ npm install --save-dev babel-preset-airbnb
+$ yarn add -D babel-preset-babelbing
 ```
 
 ## Usage
@@ -22,21 +16,21 @@ $ npm install --save-dev babel-preset-airbnb
 
 ```json
 {
-  "presets": ["airbnb"]
+  "presets": ["babelbing"]
 }
 ```
 
 ### Via CLI
 
 ```sh
-$ babel script.js --presets airbnb
+$ babel script.js --presets babelbing
 ```
 
 ### Via Node API
 
 ```javascript
 require('@babel/core').transform('code', {
-  presets: ['airbnb']
+  presets: ['babelbing']
 });
 ```
 
@@ -52,7 +46,7 @@ You may override our default list of targets by providing your own `targets` key
 
 ```json
 {
-  "presets": [["airbnb", {
+  "presets": [["babelbing", {
     "targets": {
       "chrome": 50,
       "explorer": 11,
@@ -66,7 +60,7 @@ The following transpiles only for Node v6.
 
 ```json
 {
-  "presets": [["airbnb", {
+  "presets": [["babelbing", {
     "targets": {
       "node": 6
     }
@@ -78,7 +72,7 @@ If you wish, you can also inherit our default list of browsers and extend them u
 
 ```json
 {
-  "presets": [["airbnb", {
+  "presets": [["babelbing", {
     "additionalTargets": {
       "chrome": 42,
       "explorer": 8
@@ -91,7 +85,7 @@ You may override our default debug option by providing your own `debug` key.
 
 ```json
 {
-  "presets": [["airbnb", {
+  "presets": [["babelbing", {
     "debug": true
   }]]
 }
@@ -105,7 +99,7 @@ You may override our default development option by providing your own boolean `d
 
 ```json
 {
-  "presets": [["airbnb", {
+  "presets": [["babelbing", {
     "development": false
   }]]
 }
@@ -120,7 +114,7 @@ To enable this transformation with the default options, set the `removePropTypes
 
 ```json
 {
-  "presets": [["airbnb", {
+  "presets": [["babelbing", {
     "removePropTypes": true
   }]]
 }
@@ -131,7 +125,6 @@ The default options that will be used are:
 ```js
 {
   mode: 'wrap',
-  additionalLibraries: ['airbnb-prop-types'],
   ignoreFilenames: ['node_modules'],
 }
 ```

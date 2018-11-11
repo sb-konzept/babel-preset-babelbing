@@ -6,10 +6,54 @@ exports[`doesnt explode 1`] = `
 function test() {}"
 `;
 
-exports[`doesnt explose 1`] = `
+exports[`transforms async/await wildcard from 1`] = `
 "\\"use strict\\";
 
-function test() {}"
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \\"next\\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \\"throw\\", err); } _next(undefined); }); }; }
+
+function test() {
+  return _test.apply(this, arguments);
+}
+
+function _test() {
+  _test = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function () {
+    function _callee() {
+      var a;
+      return regeneratorRuntime.wrap(function () {
+        function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return test2();
+
+              case 2:
+                a = _context.sent;
+                _context.next = 5;
+                return test3();
+
+              case 5:
+                return _context.abrupt(\\"return\\", a);
+
+              case 6:
+              case \\"end\\":
+                return _context.stop();
+            }
+          }
+        }
+
+        return _callee$;
+      }(), _callee, this);
+    }
+
+    return _callee;
+  }()));
+  return _test.apply(this, arguments);
+}"
 `;
 
 exports[`transforms export wildcard from 1`] = `
