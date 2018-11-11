@@ -20,14 +20,16 @@ module.exports = declare((api, options) => {
   // see docs about api at https://babeljs.io/docs/en/config-files#apicache
   api.assertVersion(7);
 
-  const {
-    modules,
-    targets = buildTargets(options),
-    removePropTypes,
-  } = options;
+  const { modules, targets = buildTargets(options), removePropTypes } = options;
 
-  if (typeof modules !== 'undefined' && typeof modules !== 'boolean' && modules !== 'auto') {
-    throw new TypeError('babel-preset-airbnb only accepts `true`, `false`, or `"auto"` as the value of the "modules" option');
+  if (
+    typeof modules !== 'undefined'
+    && typeof modules !== 'boolean'
+    && modules !== 'auto'
+  ) {
+    throw new TypeError(
+      'babel-preset-babelbing only accepts `true`, `false`, or `"auto"` as the value of the "modules" option',
+    );
   }
 
   const debug = typeof options.debug === 'boolean' ? options.debug : false;
@@ -37,35 +39,52 @@ module.exports = declare((api, options) => {
 
   return {
     presets: [
-      [require('@babel/preset-env'), {
-        debug,
-        exclude: [
-          'transform-async-to-generator',
-          'transform-template-literals',
-          'transform-regenerator',
-        ],
-        modules: modules === false ? false : 'auto',
-        targets,
-      }],
+      [
+        require('@babel/preset-env'),
+        {
+          debug,
+          exclude: [
+            'transform-async-to-generator',
+            'transform-template-literals',
+            'transform-regenerator',
+          ],
+          modules: modules === false ? false : 'auto',
+          targets,
+        },
+      ],
       [require('@babel/preset-react'), { development }],
     ],
     plugins: [
-      removePropTypes ? [require('babel-plugin-transform-react-remove-prop-types'), Object.assign({
-        mode: 'wrap',
-        additionalLibraries: ['airbnb-prop-types'],
-        ignoreFilenames: ['node_modules'],
-      }, removePropTypes)] : null,
+      removePropTypes
+        ? [
+          require('babel-plugin-transform-react-remove-prop-types'),
+          Object.assign(
+            {
+              mode: 'wrap',
+              ignoreFilenames: ['node_modules'],
+            },
+            removePropTypes,
+          ),
+        ]
+        : null,
 
-      [require('@babel/plugin-transform-template-literals'), {
-        spec: true,
-      }],
+      [
+        require('@babel/plugin-transform-template-literals'),
+        {
+          spec: true,
+        },
+      ],
       require('@babel/plugin-transform-property-mutators'),
       require('@babel/plugin-transform-member-expression-literals'),
       require('@babel/plugin-transform-property-literals'),
       require('@babel/plugin-transform-jscript'),
-      [require('@babel/plugin-proposal-object-rest-spread'), {
-        useBuiltIns: true,
-      }],
+      require('@babel/plugin-proposal-optional-chaining'),
+      [
+        require('@babel/plugin-proposal-object-rest-spread'),
+        {
+          useBuiltIns: true,
+        },
+      ],
     ].filter(Boolean),
   };
 });

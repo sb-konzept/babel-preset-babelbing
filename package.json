@@ -1,12 +1,12 @@
 {
-  "name": "babel-preset-airbnb",
+  "name": "babel-preset-babelbing",
   "version": "3.0.1",
-  "description": "A babel preset for transforming your JavaScript for Airbnb",
+  "description": "A babel preset for transforming your JavaScript for Babelbing",
   "main": "index.js",
-  "author": "Josh Perez <josh.perez@airbnb.com>",
+  "author": "Michael Albertz <m.albertz@sb-konzept.de",
   "repository": {
     "type": "git",
-    "url": "git@github.com:airbnb/babel-preset-airbnb.git"
+    "url": "git@github.com:sb-konzept/babel-preset-babelbing.git"
   },
   "keywords": [
     "babel",
@@ -14,10 +14,11 @@
     "es2015",
     "javascript"
   ],
-  "license": "Apache-2.0",
+  "license": "MIT",
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.0.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
     "@babel/plugin-transform-exponentiation-operator": "^7.0.0",
     "@babel/plugin-transform-jscript": "^7.0.0",
     "@babel/plugin-transform-member-expression-literals": "^7.0.0",
@@ -36,12 +37,13 @@
     "eslint": "^5.6.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0",
     "safe-publish-latest": "^1.1.2"
   },
   "scripts": {
     "prepublish": "safe-publish-latest",
-    "pretest": "npm run lint",
-    "test": "npm run tests-only",
+    "pretest": "yarn lint",
+    "test": "yarn tests-only",
     "tests-only": "node . && echo 'parsed successfully'",
     "lint": "eslint ."
   }

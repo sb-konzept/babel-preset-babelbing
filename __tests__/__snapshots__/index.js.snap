@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`doesnt explode 1`] = `
+"\\"use strict\\";
+
+function test() {}"
+`;
+
+exports[`doesnt explose 1`] = `
+"\\"use strict\\";
+
+function test() {}"
+`;
+
+exports[`transforms export wildcard from 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+
+var _test = require(\\"./test\\");
+
+Object.keys(_test).forEach(function (key) {
+  if (key === \\"default\\" || key === \\"__esModule\\") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      function get() {
+        return _test[key];
+      }
+
+      return get;
+    }()
+  });
+});"
+`;
+
+exports[`transforms optional chaining 1`] = `
+"\\"use strict\\";
+
+function Test(props) {
+  var _props$test, _props$test$test;
+
+  return React.createElement(\\"div\\", null, (_props$test = props.test) === null || _props$test === void 0 ? void 0 : (_props$test$test = _props$test.test) === null || _props$test$test === void 0 ? void 0 : _props$test$test.call(_props$test, 'hi'));
+}"
+`;
+
+exports[`transforms react 1`] = `
+"\\"use strict\\";
+
+function Test(props) {
+  return React.createElement(\\"div\\", null, props.children);
+}"
+`;
