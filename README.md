@@ -133,7 +133,7 @@ Default options can be overridden using the `removePropTypes` option. These opti
 
 ```json
 {
-  "presets": [["airbnb", {
+  "presets": [["babelbing", {
     "removePropTypes": {
       "mode": "remove"
     }
