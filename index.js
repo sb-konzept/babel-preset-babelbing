@@ -75,6 +75,7 @@ module.exports = declare((api, options) => {
       require("@babel/plugin-transform-property-literals"),
       require("@babel/plugin-transform-jscript"),
       require("@babel/plugin-proposal-optional-chaining"),
+      require("@babel/plugin-proposal-class-properties"),
       [
         require("@babel/plugin-proposal-object-rest-spread"),
         {

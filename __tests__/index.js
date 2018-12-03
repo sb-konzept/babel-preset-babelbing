@@ -48,3 +48,17 @@ test("transforms async/await wildcard from", () => {
   `;
   expect(code).toMatchSnapshot();
 });
+
+test("transforms react components", () => {
+  const code = transform`
+    class Test extends Component {
+      state = {
+        test: 1
+      }
+      render () {
+        return <div>{props.test?.test?.('hi')}</div>
+      }
+    }
+  `;
+  expect(code).toMatchSnapshot();
+});
