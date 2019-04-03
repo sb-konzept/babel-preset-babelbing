@@ -45,7 +45,8 @@ module.exports = declare((api, options) => {
         {
           debug,
           modules: modules === false ? false : "auto",
-          targets
+          targets,
+          useBuiltIns: 'usage'
         }
       ],
       [require("@babel/preset-react"), { development }]
