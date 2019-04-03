@@ -34,7 +34,6 @@
   "peerDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
-    "@babel/polyfill": "^7.0.0",
     "cross-env": "^5.2.0"
   },
   "devDependencies": {
