@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-babelbing",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A babel preset for transforming your JavaScript for Babelbing",
   "main": "index.js",
   "author": "Michael Albertz <m.albertz@sb-konzept.de",
@@ -16,7 +16,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
     "@babel/helper-plugin-utils": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
@@ -27,14 +26,15 @@
     "@babel/plugin-transform-property-literals": "^7.0.0",
     "@babel/plugin-transform-property-mutators": "^7.0.0",
     "@babel/plugin-transform-template-literals": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.18"
   },
   "peerDependencies": {
-    "@babel/polyfill": "^7.0.0",
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
     "cross-env": "^5.2.0"
   },
   "devDependencies": {
