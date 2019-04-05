@@ -1,9 +1,13 @@
 /* eslint-env jest */
-function transform(...args) {
+const transformWithConfig = (presetConfig = {}) => (...args) => {
   const { code } = require("@babel/core").transform(String.raw(...args), {
-    presets: ["./index.js"]
+    presets: [["./index.js", presetConfig]]
   });
   return code;
+};
+
+function transform(...args) {
+  return transformWithConfig()(...args);
 }
 
 test("doesnt explode", () => {
@@ -58,6 +62,17 @@ test("transforms react components", () => {
       render () {
         return <div>{props.test?.test?.('hi')}</div>
       }
+    }
+  `;
+  expect(code).toMatchSnapshot();
+});
+
+test("transforms async/await with node as target", () => {
+  const code = transformWithConfig({ targets: { node: 8 } })`
+    async function test () {
+      const a = await test2()
+      await test3()
+      return a
     }
   `;
   expect(code).toMatchSnapshot();

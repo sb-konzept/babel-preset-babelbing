@@ -2,25 +2,13 @@
 
 const { declare } = require("@babel/helper-plugin-utils");
 
-const defaultTargets = {
-  android: 30,
-  chrome: 35,
-  edge: 14,
-  explorer: 9,
-  firefox: 52,
-  safari: 8,
-  ucandroid: 1
-};
-
-function buildTargets({ additionalTargets }) {
-  return Object.assign({}, defaultTargets, additionalTargets);
-}
+const defaultTargets = [">0.25%", "not dead"];
 
 module.exports = declare((api, options) => {
   // see docs about api at https://babeljs.io/docs/en/config-files#apicache
   api.assertVersion(7);
 
-  const { modules, targets = buildTargets(options), removePropTypes } = options;
+  const { modules, targets = defaultTargets, removePropTypes } = options;
 
   if (
     typeof modules !== "undefined" &&

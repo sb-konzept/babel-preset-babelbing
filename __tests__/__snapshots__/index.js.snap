@@ -56,6 +56,16 @@ function _test() {
 }"
 `;
 
+exports[`transforms async/await with node as target 1`] = `
+"\\"use strict\\";
+
+async function test() {
+  const a = await test2();
+  await test3();
+  return a;
+}"
+`;
+
 exports[`transforms export wildcard from 1`] = `
 "\\"use strict\\";
 
